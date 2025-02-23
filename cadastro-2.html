@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cadastro-2.css">
+    <title>Tela de Cadastro - Informações Adicionais</title>
+</head>
+<body>
+    <main>
+        <form id="formCadastro2">
+            <h1>Cadastre-se</h1>
+            <section class="form-container">
+                <div class="form-1">
+                    <label for="cpf">CPF:</label>
+                    <input class="input-1" type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required>
+                    
+                    <label for="rg">RG:</label>
+                    <input class="input-1" type="text" id="rg" name="rg" placeholder="Digite seu RG" required>
+                    
+                    <label for="senha"> Crie uma Senha:</label>
+                    <input class="input-1" type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                    
+                    <label for="confirma-senha">Confirma Senha:</label>
+                    <input class="input-1" type="password" id="confirma-senha" name="confirma_senha" placeholder="Confirme sua senha" required>
+                </div>
+
+                <div class="genero-container">
+                    <label>Gênero:</label>
+                    <label>
+                        <input type="radio" name="genero" value="masculino" required> Masculino
+                    </label>
+                    <label>
+                        <input type="radio" name="genero" value="feminino"> Feminino
+                    </label>
+                    <label>
+                        <input type="radio" name="genero" value="outro"> Outro
+                    </label>
+                </div>
+            </section>
+            <button type="submit" class="btn-confirma">Confirma Dados</button>
+        </form>
+    </main>
+    <script>
+
+        document.getElementById('formCadastro2').addEventListener('submit', function(event) {
+    
+            event.preventDefault();
+    
+    
+            const cpf = document.getElementById('cpf').value.trim();
+    
+            const rg = document.getElementById('rg').value.trim();
+    
+            const senha = document.getElementById('senha').value.trim();
+    
+            const confirmaSenha = document.getElementById('confirma-senha').value.trim();
+    
+    
+            if (cpf === '' || rg === '' || senha === '' || confirmaSenha === '') {
+    
+                alert('Por favor, preencha todos os campos obrigatórios.');
+    
+                return;
+    
+            }
+    
+
+            if (senha !== confirmaSenha) {
+    
+                alert('As senhas não coincidem. Tente novamente.');
+    
+                return;
+    
+            }
+    
+    
+            alert('Formulário enviado com sucesso!');
+    
+            this.submit(); // Envia o formulário
+    
+        });
+    
+    </script>
+</body>
+</html>

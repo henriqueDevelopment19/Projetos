@@ -1,0 +1,125 @@
+*{
+    margin: 0px;
+}
+
+body{
+    background-color: #f4f4f4;
+}
+
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+
+.menu h1 {
+    margin: 0 auto;
+    font-size: 20px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+body {
+    padding-top: 50px; 
+}
+
+.menu .voltar {
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+}
+
+.cartoes{
+    margin: auto;
+    border: 1px solid red;
+    width: 1500px;
+    height: 400px;
+}
+
+.info-cartoes {
+    background-color: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 500px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+.saldo_gasto {
+    background-color: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 500px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+}
+
+.disponivel{
+    color: blue;
+}
+
+.gasto{
+    color: red;
+}
+
+span{
+    font-weight: bold;
+}
+
+.pre-historico{
+    background-color: #D9D9D9;
+    max-width: 90%;
+    width: 600px;
+    min-height: 200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-radius: 10px;
+}
+
+.recentes{
+    margin: 20px;
+}
+
+.valor{
+    margin: 20px;
+}
+
+.recentes p{
+    margin: 10px 0;
+}
+
+.valor p{
+    margin: 10px 0;
+}
+
+.lista-completa {
+    font-weight: bold;
+    width: 100%; /* Ocupa toda a largura para ir para a linha de baixo */
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+}
+
+a{
+    color: black;
+}
