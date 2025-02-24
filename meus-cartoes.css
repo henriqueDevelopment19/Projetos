@@ -7,6 +7,7 @@ body{
 }
 
 .menu{
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -33,6 +34,103 @@ body {
     text-decoration: none;
     font-size: 18px;
     color: black;
+}
+
+
+.box-card {
+    
+    /*border: 1px solid black;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: nowrap;
+    /* Mantém os cartões sempre na horizontal */
+    overflow-x: auto;
+    /* Permite rolagem horizontal caso necessário */
+    gap: 10px;
+    /* Adiciona espaçamento entre os cartões */
+    padding: 10px;
+}
+
+.card {
+    min-width: 500px;
+    /* Garante um tamanho mínimo fixo para os cartões */
+    height: 265px;
+    background-color: #f97316;
+
+    border-radius: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    /* Box shadow suave */
+    transition: box-shadow 0.9s ease;
+}
+
+.card:hover{
+   
+    transform: translateY(-10px);
+}
+.card-date {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+}
+
+.chip {
+    position: absolute;
+    bottom: 170px;
+    left: 50px;
+    width: 50px;
+    height: 50px;
+
+}
+
+.info-card-date {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    bottom: 90px;
+    left: 40px;
+    margin: 0;
+}
+
+.flag-container {
+    position: relative;
+    width: 70px;
+    height: 50px;
+    left: 350px;
+}
+
+.flag-card {
+
+    top: -25px;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #EB001B;
+    /* Vermelho Mastercard */
+    left: 50px;
+}
+
+.flag-card-2 {
+    top: -25px;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #F79E1B;
+    /* Laranja Mastercard */
+    left: 20px;
+    /* Sobreposição */
 }
 
 .cartoes{

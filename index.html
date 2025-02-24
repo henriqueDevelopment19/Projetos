@@ -1,0 +1,117 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tela de login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="banco.js"></script> <!-- Inclui o "banco de dados" -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background">
+        <!-- Bolinhas brancas animadas -->
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+
+    <!-- Card de login -->
+    <div class="login-card">
+        <h1 class="texto_banco">Infinity Bank</h1>
+        <form id="loginForm">
+            <!-- numero da conta-->
+            <div class="input-group">
+                <label for="account-number">Número da conta</label>
+                <input id="account-number" type="text" placeholder="Digite seu número">
+            </div>
+            <!-- senha da conta -->
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <div class="password-container">
+                    <input id="password" type="password" placeholder="Digite sua senha">
+                    <button type="button" id="togglePassword">
+                        <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="15"
+                            height="15">
+                            <path fill="#555"
+                                d="M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Botão entrar-->
+            <button class="btn" type="submit">ENTRAR</button>
+
+            <!-- Botões de esqueceu a senha e abrir conta-->
+            <div class="links">
+                <a href="#">Esqueceu a senha?</a>
+                <a href="cadastro-1.html">Abrir conta</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Função para alternar visualização de senha
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            let passwordInput = document.getElementById('password');
+            let eyeIcon = document.getElementById('eyeIcon');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                // Ícone do cadeado aberto
+                eyeIcon.innerHTML = ` <path fill="#555" d="M144 144c0-44.2 35.8-80 80-80c31.9 0 59.4 18.6 72.3 45.7c7.6 16 26.7 22.8 42.6 15.2s22.8-26.7 15.2-42.6C331 33.7 281.5 0 224 0C144.5 0 80 64.5 80 144l0 48-16 0c-35.3 0-64 28.7-64 64L0 448c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-192c0-35.3-28.7-64-64-64l-240 0 0-48z"/>`;
+            } else {
+                passwordInput.type = 'password';
+                // Ícone do cadeado fechado
+                eyeIcon.innerHTML = `<path fill="#555" d="M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z"/>`;
+            }
+        });
+
+        // Função de login
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Credenciais do admin
+            const adminAccount = "admin123";
+            const adminPassword = "adminadmin";
+
+            // Obtendo os valores do formulário
+            const accountNumber = document.getElementById('account-number').value;
+            const password = document.getElementById('password').value;
+
+            // Verificando se as credenciais são do admin
+            if (accountNumber === adminAccount && password === adminPassword) {
+                // Redirecionando para a página do banco de dados
+                window.location.href = '../database/database.html';  // Substitua pelo nome do seu arquivo de banco de dados
+            } else {
+                alert("Credenciais incorretas! Tente novamente.");
+            }
+        });
+
+
+        //função para validar o login e direcionar o usuario para sua pagina especifica
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Obtendo os valores do formulário
+            const accountNumber = document.getElementById('account-number').value;
+            const password = document.getElementById('password').value;
+
+            // Verificando se o número da conta e a senha estão corretos
+            if (bancoDeDados[accountNumber] && bancoDeDados[accountNumber].senha === password) {
+                // Redirecionando para a página home correspondente
+                window.location.href = bancoDeDados[accountNumber].home;
+            } else {
+                alert("Número da conta ou senha incorretos. Tente novamente.");
+            }
+        });
+    </script>
+
+</body>
+
+</html>
